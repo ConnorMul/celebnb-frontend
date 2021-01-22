@@ -1,18 +1,19 @@
 import React from 'react'
 import { NavLink, Link } from "react-router-dom";
 
-function Header() {
+function Header({ onLogin, onLogout, currentUser }) {
     return (
-        <div>
-            <nav>
-            <h1>celebnb</h1>
-            <Link exact to="/listings" className="button">
-                Listings
-            </Link>
-            
-            <Link exact to="/login" className="button">
-                Login
-            </Link>
+        <div className="header-container">
+            <nav className="navbar">
+                <h1 className="logo">celebnb</h1> 
+                <Link exact to="/listings" className="button">
+                    Listings
+                </Link>
+                {currentUser ?
+                    <button className="login-button" onClick={onLogout}>Log out</button>
+                :
+                    <button className="login-button" onClick={onLogin}>Log in</button>}
+                {currentUser ? <h1>Welcome, {currentUser.username}</h1> : null}
             </nav>
         </div>
     )
