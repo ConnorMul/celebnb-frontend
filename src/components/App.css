@@ -1,5 +1,10 @@
+* {
+  background: "https://images.unsplash.com/photo-1525254134158-4fd5fdd45793?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80";
+}
+
 .App {
   text-align: center;
+  background-image: "https://images.unsplash.com/photo-1525254134158-4fd5fdd45793?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80";
 }
 
 .App-logo {
@@ -38,6 +43,71 @@
 }
 
 img {
-  width: 100px;
+  width: 200px;
   height: 100px;
+}
+
+.logo {
+  position: relative;
+  right: 250px;
+  text-decoration: none;
+  font-size: 50px;
+}
+
+/* .header-container {
+    position: fixed;
+    /* top: 20px; */
+
+
+button.login-button {
+  position: relative;
+  left: 265px;
+  bottom: 25px;
+}
+
+.listings-button {
+  position: relative;
+  left: 200px;
+  bottom: 25px;
+  text-decoration: none;
+}
+
+.search-field {
+  bottom: 25px;
+  position: center;
+}
+
+.filter-menu {
+  position: relative;
+  left: 150px;
+}
+
+.listing-details-link {
+  padding-top: 0em;
+  position: relative;
+  margin: 0px;
+}
+
+.listing-card {
+  flex: 1 0 21%;
+  margin: 5px;
+}
+
+.listings-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.listing-detail-image {
+  right: 200px;
+  top: 100px;
+  position: relative;
+  height: 250px;
+  width: 250px;
+}
+
+.listing-details-card {
+  left: 200px;
+  position: relative;
+  bottom: 200px;
 }

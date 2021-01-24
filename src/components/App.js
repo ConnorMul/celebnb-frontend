@@ -7,21 +7,22 @@ import Login from './Login'
 import './App.css';
 import Search from './Search'
 import ListingDetail from './ListingDetail'
-import FilterSort from "./FilterSort";
+// import FilterSort from "./FilterSort";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const [search, setSearch] = useState("")
   const [listings, setListings] = useState([])
+  const [sortBy, setSortBy] = useState("All")
 
   useEffect(() => {
-    fetch("http://localhost:3002/listings")
+    fetch(`${process.env.REACT_APP_API_BASE_URL}/listings`)
     .then(r => r.json())
     .then(setListings)
   }, [])
 
   function handleLogin() {
-    fetch("http://localhost:3000/autologin")
+    fetch(`${process.env.REACT_APP_API_BASE_URL}/login`)
       .then((r) => r.json())
       .then(setCurrentUser);
   }
@@ -33,7 +34,19 @@ function App() {
     setSearch(newSearch)
   }
 
-  const displayedListings = listings.filter(listing => listing.location.toLowerCase().includes(search.toLowerCase()))
+  const displayedListings = listings.filter(listing => 
+    listing.location.toLowerCase().includes(search.toLowerCase()))
+    .filter(listing => {
+      if (sortBy === "All") {
+        return listing
+      } else if (sortBy === "Pool") {
+        return listing.pool
+      } else if (sortBy === "Hot Tub") {
+        return listing.hot_tub
+      } else if (sortBy === "Wait Staff") {
+        return listing.wait_staff
+      }
+    })
 
   return (
     <div className="App">
@@ -42,18 +55,24 @@ function App() {
         onLogout={handleLogout} 
         currentUser={currentUser}
         />
-      <Search search={search} handleSearchChange={handleSearchChange}/>
-     
-      
+
       <Switch>
         <Route exact path="/">
           <Home />
         </Route>
         <Route exact path="/listings/:id">
-          <ListingDetail listings={listings}/>
+          <ListingDetail 
+            listings={listings}
+          />
         </Route>
         <Route path="/listings">
-          <ListingsContainer listings={displayedListings}/>
+          <ListingsContainer 
+            listings={displayedListings}
+            sortBy={sortBy}
+            setSortBy={setSortBy}
+            search={search} 
+            handleSearchChange={handleSearchChange}
+          />
         </Route>
         <Route path="/login">
           <Login />

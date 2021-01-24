@@ -1,13 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { NavLink, Link, useParams } from "react-router-dom";
 
 function ListingCard({ listing }) {
+    const [likes, setLikes] = useState(listing.likes)
 
     function handleLike() {
-        console.log("liked")
-    }
 
-    const params = useParams(1)
+        const configObj = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                likes: likes + 1 
+            })
+        }
+
+        fetch(`${process.env.REACT_APP_API_BASE_URL}/listings/${listing.id}`, configObj)
+        .then(r => r.json())
+        .then(likeObj => {
+            listing.likes = parseInt(listing.likes) + 1
+            setLikes(likeObj.likes)
+        })
+    }
 
     return (
         <div className="listing-card">
@@ -17,10 +32,11 @@ function ListingCard({ listing }) {
             <p className="listing-price">{listing.price}</p>
             <p className="listing-location">{listing.location}</p>
             <button className="like-btn" onClick={handleLike}>
-                <p>{listing.likes} Likes</p>
+                {listing.likes} Likes
             </button>
-            <Link to={`listings/:id`} >
-                See More Details on this Listing & Book your stay
+            <Link to={`listings/${listing.id}`} >
+               <p className="listing-details-link">See More Details on this Listing</p>
+                <p className="listing-details-link">& Book your stay</p>
             </Link>
             {/* <ListingDetail listing={listing}/> */}
         </div>

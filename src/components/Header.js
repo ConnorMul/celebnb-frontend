@@ -5,8 +5,8 @@ function Header({ onLogin, onLogout, currentUser }) {
     return (
         <div className="header-container">
             <nav className="navbar">
-                <h1 className="logo">celebnb</h1> 
-                <Link exact to="/listings" className="button">
+                <Link className="logo" exact to="/">celebnb</Link> 
+                <Link exact to="/listings" className="listings-button">
                     Listings
                 </Link>
                 {currentUser ?
