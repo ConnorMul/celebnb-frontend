@@ -3,11 +3,9 @@ import { Redirect, Route, Switch } from "react-router-dom";
 import Header from "./Header";
 import Home from './Home'
 import ListingsContainer from './ListingsContainer'
-import Login from './Login'
 import './App.css';
-import Search from './Search'
 import ListingDetail from './ListingDetail'
-// import FilterSort from "./FilterSort";
+import BookingForm from "./BookingForm";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
@@ -74,8 +72,8 @@ function App() {
             handleSearchChange={handleSearchChange}
           />
         </Route>
-        <Route path="/login">
-          <Login />
+        <Route path="/bookings/new">
+          <BookingForm />
         </Route>
         <Route path="*">
           <Redirect to="/" />

@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useParams } from "react-router-dom"
+import { Route, Link, useParams } from "react-router-dom"
+import BookingForm from './BookingForm';
+
 
 function ListingDetail({listings}) {
 
@@ -20,7 +22,6 @@ useEffect(() => {
   if (!isLoaded) return <h2>Loading...</h2>;
 
   const { image, title, price, description, comment, num_of_guests, size, owner, wait_staff, hot_tub, pool } = listing;
-        
         return (
             <div>
                 <img src={image} alt={title} className="listing-detail-image"></img>
@@ -36,7 +37,9 @@ useEffect(() => {
                     <p className="listing-detail-amenities">{pool ? "Pool included" : "Pool not included"}</p>
                     <p className="listing-detail-comment">{comment}</p>
                 </div>
-                
+                {/* <Link to="/bookings/new">Book Your Stay at this Listing</Link> */}
+
+                    <BookingForm listing={listing}/>
             </div>
             )
 }
