@@ -73,7 +73,9 @@ function App() {
           />
         </Route>
         <Route path="/bookings/new">
-          <BookingForm />
+          <BookingForm 
+            currentUser={currentUser}
+          />
         </Route>
         <Route path="*">
           <Redirect to="/" />
