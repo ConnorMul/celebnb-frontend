@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
+import { Redirect, useHistory } from "react-router-dom";
 
-function BookingForm({ listing, currentUser }) {
+function BookingForm({ listing, currentUser, bookings, setBookings, setWallet, wallet }) {
     const [checkInDate, setCheckInDate] = useState("")
     const [checkOutDate, setCheckOutDate] = useState("")
-   
+
+    const history = useHistory()
     
     const numberOfNightsBetweenDates = (startDate, endDate) => {
         const start = new Date(startDate)
@@ -14,43 +16,85 @@ function BookingForm({ listing, currentUser }) {
           dayCount++
           start.setDate(start.getDate() + 1)
         }
-      
+        // setNumberOfNights(dayCount)
         return dayCount
       }
 
-      const totalListingPriceForStay = (currentListing) => {
-        const totalPrice = currentListing.price * numberOfNightsBetweenDates(checkInDate, checkOutDate)
-
-        return totalPrice
-      }
+      const totalListingPriceForStay = listing.price * numberOfNightsBetweenDates(checkInDate, checkOutDate)
+    
 
       const handleChange = (evt) => {
         if (evt.target.name === "check-in-date") {
             setCheckInDate(evt.target.value)
-            setFormData({...formData, checkInDate: evt.target.value})
+            setFormData({...formData, check_in_date: evt.target.value})
         } else if (evt.target.name === "check-out-date") {
             setCheckOutDate(evt.target.value)
-            setFormData({...formData, checkOutDate: evt.target.value})
-        } else if (evt.target.name === "nights") {
-            setFormData({...formData, numberOfNights: numberOfNightsBetweenDates(checkInDate, checkOutDate)})
-        } else {
-            setFormData({...formData, totalPrice: totalListingPriceForStay(listing)})
+
+            setFormData({
+                ...formData, 
+                check_out_date: evt.target.value
+            })
         }
       }
 
+    //   const handleNightsChange = (evt) => {
+    //     setNumberOfNights(numberOfNightsBetweenDates(checkInDate, checkOutDate))
+    //     setFormData({...formData, numberOfNights: numberOfNightsBetweenDates(checkInDate, checkOutDate)})
+    //   }
+
+    //   const handlePriceChange = (evt) => {
+    //       setTotalPrice(totalListingPriceForStay)
+    //       setFormData({...formData, totalPrice: totalListingPriceForStay})
+    //   }
+
       const [formData, setFormData] = useState({
-        checkInDate: "",
-        checkOutDate: "",
-        numberOfNights: numberOfNightsBetweenDates(checkInDate, checkOutDate),
-        totalPrice: totalListingPriceForStay(listing),
-        listing: listing,
-        user: currentUser
+        check_in_date: "",
+        check_out_date: "",
+        number_of_nights: 0,
+        total_price: 0,
+        listing_id: listing.id,
+        user_id: currentUser
     })
 
     const handleSubmit = (evt) => {
         evt.preventDefault()
-        console.log(formData)
+        if (wallet >= totalListingPriceForStay) {
+            fetch(`${process.env.REACT_APP_API_BASE_URL}/bookings/new`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    ...formData,
+                    total_price: totalListingPriceForStay,
+                    number_of_nights: numberOfNightsBetweenDates(checkInDate, checkOutDate),
+                    listing_id: listing.id,
+                    user_id: currentUser.id
+                })
+            })
+            .then(resp => resp.json())
+            .then(bookingObj => {
+                setBookings([...bookings, bookingObj])
+                
+                    fetch(`${process.env.REACT_APP_API_BASE_URL}/users/${currentUser.id}`, {
+                        method: "PATCH",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            money_in_wallet: wallet - totalListingPriceForStay
+                        })
+                    })
+                    .then(r => r.json())
+                    .then(updatedUserObj => setWallet(updatedUserObj.money_in_wallet))
+                    history.push("/bookings")
+                })
+                } else {
+                    alert("You don't have enough to book this listing lol poor")
+                }
     }
+        
+
 
       console.log(formData)
     return (
@@ -59,22 +103,42 @@ function BookingForm({ listing, currentUser }) {
         <form className="booking-form" onSubmit={handleSubmit}>
             <label>
                 Check-In Date:
-                <input type="date" name="check-in-date" value={checkInDate} onChange={handleChange} />
+                <input 
+                    type="date" 
+                    name="check-in-date" 
+                    value={checkInDate} 
+                    onChange={handleChange} 
+                />
             </label>
             <br />
             <br />
             <label>
                 Check-Out Date:
-                <input type="date" name="check-out-date" value={checkOutDate} onChange={handleChange} />
+                <input 
+                    type="date" 
+                    name="check-out-date" 
+                    value={checkOutDate} 
+                    onChange={handleChange} 
+                />
             </label>
             <br />
             <label>
-            Number of Nights selected: 
-                <input type="number" name="nights" value={numberOfNightsBetweenDates(checkInDate, checkOutDate)} />
+                Number of Nights selected: 
+                <input 
+                    type="text" 
+                    name="nights" 
+                    value={numberOfNightsBetweenDates(checkInDate, checkOutDate)} 
+                    // onChange={handleNightsChange} 
+                />
             </label>
             <label>
                 Total Price for this stay:
-                <input type="number" name="total-price" value={totalListingPriceForStay(listing)}/>
+                <input 
+                    type="text" 
+                    name="price" 
+                    value={totalListingPriceForStay} 
+                    // onChange={handlePriceChange}
+                    />
             </label>
             <input type="submit" value="Submit" />
             

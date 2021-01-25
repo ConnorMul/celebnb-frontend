@@ -1,7 +1,9 @@
 import React from 'react'
 import { NavLink, Link } from "react-router-dom";
 
-function Header({ onLogin, onLogout, currentUser }) {
+function Header({ onLogin, onLogout, currentUser, wallet }) {
+    
+
     return (
         <div className="header-container">
             <nav className="navbar">
@@ -10,9 +12,15 @@ function Header({ onLogin, onLogout, currentUser }) {
                     Listings
                 </Link>
                 {currentUser ?
-                    <button className="login-button" onClick={onLogout}>Log out</button>
-                :
-                    <button className="login-button" onClick={onLogin}>Log in</button>}
+                 <NavLink to="/bookings">Current Bookings</NavLink> 
+                 : null }
+                
+                {wallet ? <h4>You have ${wallet} available to spend</h4> : null}
+                
+                {currentUser ?
+                    <NavLink className="login-button" to="/" onClick={onLogout}>Log out</NavLink>
+                : null }
+                {currentUser ? null : <NavLink className="login-button" to="/login">Log in</NavLink> }
                 {currentUser ? <h1>Welcome, {currentUser.username}</h1> : null}
             </nav>
         </div>

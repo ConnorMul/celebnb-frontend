@@ -6,12 +6,16 @@ import ListingsContainer from './ListingsContainer'
 import './App.css';
 import ListingDetail from './ListingDetail'
 import BookingForm from "./BookingForm";
+import BookingList from "./BookingList";
+import Login from "./Login"
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const [search, setSearch] = useState("")
   const [listings, setListings] = useState([])
   const [sortBy, setSortBy] = useState("All")
+  const [bookings, setBookings] = useState([])
+  const [wallet, setWallet] = useState(null)
 
   useEffect(() => {
     fetch(`${process.env.REACT_APP_API_BASE_URL}/listings`)
@@ -22,15 +26,42 @@ function App() {
   function handleLogin() {
     fetch(`${process.env.REACT_APP_API_BASE_URL}/login`)
       .then((r) => r.json())
-      .then(setCurrentUser);
+      .then(userObj => {
+        setCurrentUser(userObj)
+        setBookings(userObj.bookings)
+        setWallet(userObj.money_in_wallet)
+      });
   }
+
 
   function handleLogout() {
     setCurrentUser(null);
   }
+
   function handleSearchChange(newSearch){
     setSearch(newSearch)
   }
+
+  function handleDeleteBooking(bookingToDelete) {
+    fetch(`${process.env.REACT_APP_API_BASE_URL}/bookings/${bookingToDelete.id}`, {
+        method: "DELETE"
+    })
+    .then(r => r.json())
+    .then(bookingObj => {
+      setBookings(bookings.filter((booking) => booking.id !== bookingToDelete.id))
+      fetch(`${process.env.REACT_APP_API_BASE_URL}/users/${currentUser.id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          money_in_wallet: wallet + bookingToDelete.total_price
+        })
+      })
+      .then(r => r.json())
+      .then(updatedUserObj => setWallet(updatedUserObj.money_in_wallet))
+    })
+}
 
   const displayedListings = listings.filter(listing => 
     listing.location.toLowerCase().includes(search.toLowerCase()))
@@ -52,6 +83,7 @@ function App() {
         onLogin={handleLogin}
         onLogout={handleLogout} 
         currentUser={currentUser}
+        wallet={wallet}
         />
 
       <Switch>
@@ -60,7 +92,12 @@ function App() {
         </Route>
         <Route exact path="/listings/:id">
           <ListingDetail 
+            currentUser={currentUser}
             listings={listings}
+            setBookings={setBookings}
+            bookings={bookings}
+            wallet={wallet}
+            setWallet={setWallet}
           />
         </Route>
         <Route path="/listings">
@@ -72,9 +109,16 @@ function App() {
             handleSearchChange={handleSearchChange}
           />
         </Route>
-        <Route path="/bookings/new">
-          <BookingForm 
-            currentUser={currentUser}
+        <Route path="/bookings">
+          <BookingList 
+            bookings={bookings} 
+            handleDeleteBooking={handleDeleteBooking}
+          />
+        </Route>
+        <Route path="/login">
+          <Login 
+            currentUser={currentUser} 
+            onLogin={handleLogin} 
           />
         </Route>
         <Route path="*">

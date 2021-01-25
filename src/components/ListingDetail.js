@@ -3,7 +3,7 @@ import { Route, Link, useParams } from "react-router-dom"
 import BookingForm from './BookingForm';
 
 
-function ListingDetail({listings}) {
+function ListingDetail({ listings, currentUser, setBookings, bookings, wallet, setWallet }) {
 
 const [listing, setListing] = useState(null)
 const [isLoaded, setIsLoaded] =useState(false);
@@ -39,7 +39,14 @@ useEffect(() => {
                 </div>
                 {/* <Link to="/bookings/new">Book Your Stay at this Listing</Link> */}
 
-                    <BookingForm listing={listing}/>
+                    <BookingForm 
+                        currentUser={currentUser} 
+                        listing={listing} 
+                        bookings={bookings} 
+                        setBookings={setBookings}
+                        wallet={wallet}
+                        setWallet={setWallet}    
+                    />
             </div>
             )
 }
