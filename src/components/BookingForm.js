@@ -98,55 +98,76 @@ function BookingForm({ listing, currentUser, bookings, setBookings, setWallet, w
 
       console.log(formData)
     return (
-    <div>
-        {/* {listing.title} */}
-        <form className="booking-form" onSubmit={handleSubmit}>
-            <label>
-                Check-In Date:
-                <input 
-                    type="date" 
-                    name="check-in-date" 
-                    value={checkInDate} 
-                    onChange={handleChange} 
-                />
-            </label>
-            <br />
-            <br />
-            <label>
-                Check-Out Date:
-                <input 
-                    type="date" 
-                    name="check-out-date" 
-                    value={checkOutDate} 
-                    onChange={handleChange} 
-                />
-            </label>
-            <br />
-            <label>
-                Number of Nights selected: 
-                <input 
-                    type="text" 
-                    name="nights" 
-                    value={numberOfNightsBetweenDates(checkInDate, checkOutDate)} 
-                    // onChange={handleNightsChange} 
-                />
-            </label>
-            <label>
-                Total Price for this stay:
-                <input 
-                    type="text" 
-                    name="price" 
-                    value={totalListingPriceForStay} 
-                    // onChange={handlePriceChange}
-                    />
-            </label>
-            <input type="submit" value="Submit" />
-            
-        </form>
+    <div class="booking-widget">
+
+            <form  onSubmit={handleSubmit}>
+                <br />
+                <ul class='booking-widget__form'>
+                    <li>
+                        <label for='check-in'> Check in </label>
+                        <div id='check-in' class='form-field'>
+                            <input 
+                            type="text" 
+                            name="check-in-date" 
+                            value={checkInDate} 
+                            onChange={handleChange} 
+                            placeholder="9 July, 2016"
+                            />
+                        </div>
+                        
+                    </li>
+                    <li>
+                         <label for='check-in'>Check out</label>
+                         <div id='check-out' class='form-field'>
+                            <input 
+                            type="text" 
+                            name="check-out-date" 
+                            value={checkOutDate} 
+                            onChange={handleChange} 
+                            />
+                        </div>
+                        
+                    </li>
+
+                    <li>
+                     <div class='form__dropdown'id="night">
+                        <label for='childrenAmount'>Total Nights</label>
+                      <div class='form-field'> 
+                            <input 
+                            type="text" 
+                            name="nights" 
+                            value={numberOfNightsBetweenDates(checkInDate, checkOutDate)} 
+                            // onChange={handleNightsChange} 
+                            />
+                      </div>
+                    </div>
+                    </li>
+
+
+                    <li>
+                     <div class='form__dropdown' id="cost">
+                        <label for='childrenAmount'>Total Cost</label>
+                        
+                      <div class='form-field'> 
+                            <input 
+                            type="text" 
+                            name="price" 
+                            value={totalListingPriceForStay} 
+                            // onChange={handlePriceChange}
+                            />
+                      </div>
+                    </div>
+                    </li>
+                    <li>
+                        <input type="submit" value="Submit" id='bookingSubmit' class='form__submit'  />
+                    </li>
+                </ul>
+            </form>
+        </div>
     
-    </div>
     )
 }
 
 
 export default BookingForm
+

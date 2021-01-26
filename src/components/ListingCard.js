@@ -29,7 +29,7 @@ function ListingCard({ listing }) {
             <img className="listing-image" src={listing.image} alt={listing.title}></img>
             
             <h4 className="listing-title">{listing.title}</h4>
-            <p className="listing-price">{listing.price}</p>
+            <p className="listing-price">${listing.price}</p>
             <p className="listing-location">{listing.location}</p>
             <button className="like-btn" onClick={handleLike}>
                 {listing.likes} Likes

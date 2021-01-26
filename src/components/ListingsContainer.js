@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import FilterSort from './FilterSort'
 import ListingCard from './ListingCard'
+import MyMap from './MyMap'
 import Search from './Search'
 function ListingsContainer({ listings, sortBy, setSortBy, search, handleSearchChange }) {
 
@@ -25,7 +26,7 @@ function ListingsContainer({ listings, sortBy, setSortBy, search, handleSearchCh
             />
         
             <div className="listings-container">
-                {listingItems}
+                <MyMap listings={listings}/>
             </div>
         </>
     )

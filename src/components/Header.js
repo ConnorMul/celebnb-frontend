@@ -15,7 +15,7 @@ function Header({ onLogin, onLogout, currentUser, wallet }) {
                  <NavLink to="/bookings">Current Bookings</NavLink> 
                  : null }
                 
-                {wallet ? <h4>You have ${wallet} available to spend</h4> : null}
+                {wallet  && currentUser ? <h4>You have ${wallet} available to spend</h4> : null}
                 
                 {currentUser ?
                     <NavLink className="login-button" to="/" onClick={onLogout}>Log out</NavLink>

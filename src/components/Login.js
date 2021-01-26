@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 
-function Login({currentUser, onLogin}) {
+function Login({ onLogin }) {
     return (
         <div className="inner-container">
         <div className="box">

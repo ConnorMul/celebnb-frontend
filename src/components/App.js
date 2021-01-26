@@ -33,7 +33,6 @@ function App() {
       });
   }
 
-
   function handleLogout() {
     setCurrentUser(null);
   }
@@ -63,7 +62,7 @@ function App() {
     })
 }
 
-  const displayedListings = listings.filter(listing => 
+  const displayedListings = listings.filter(listing =>
     listing.location.toLowerCase().includes(search.toLowerCase()))
     .filter(listing => {
       if (sortBy === "All") {
@@ -88,7 +87,9 @@ function App() {
 
       <Switch>
         <Route exact path="/">
-          <Home />
+          <Home 
+            listings={listings}
+          />
         </Route>
         <Route exact path="/listings/:id">
           <ListingDetail 

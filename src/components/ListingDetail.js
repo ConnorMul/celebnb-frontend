@@ -21,24 +21,24 @@ useEffect(() => {
 
   if (!isLoaded) return <h2>Loading...</h2>;
 
-  const { image, title, price, description, comment, num_of_guests, size, owner, wait_staff, hot_tub, pool } = listing;
+  const { image, title, price, description, num_of_guests, size, owner, wait_staff, hot_tub, pool } = listing;
         return (
             <div>
                 <img src={image} alt={title} className="listing-detail-image"></img>
                 <div className="listing-details-card">
                     <h2 className="listing-detail-title">{title}</h2>
-                    <p className="listing-detail-description">{description}</p>
-                    <p className="listing-detail-price">$ {price} per night </p>
+                    <div className="listing-detail-description-container">
+                        <p className="listing-detail-description">{description}</p>
+                    </div>
+                    <p className="listing-detail-price">${price} per night </p>
                     <p className="listing-detail-guests">{num_of_guests} number of guests</p>
                     <p className="listing-detail-size">{size} Square feet </p>
                     <p className="listing-detail-owner">{owner}</p>
                     <p className="listing-detail-amenities">{wait_staff ? "Wait staff included" : "Wait staff is not included"}</p>
                     <p className="listing-detail-amenities">{hot_tub ? "Hot Tub included" : "Hot Tub not included"}</p>
                     <p className="listing-detail-amenities">{pool ? "Pool included" : "Pool not included"}</p>
-                    <p className="listing-detail-comment">{comment}</p>
+                
                 </div>
-                {/* <Link to="/bookings/new">Book Your Stay at this Listing</Link> */}
-
                     <BookingForm 
                         currentUser={currentUser} 
                         listing={listing} 
