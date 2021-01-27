@@ -9,8 +9,8 @@ function MyMap({ listings }) {
 
   const mapIcon = icon({
     iconUrl: "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-violet.png",
-    iconSize: [40, 30],
-    iconAnchor: [40, 0],
+    iconSize: [30, 50],
+    iconAnchor: [20, 48],
     popupAnchor: [0, -28]
   })
 
