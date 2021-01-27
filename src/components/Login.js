@@ -8,7 +8,7 @@ function Login({ onLogin }) {
 	    <h1>Login</h1>
         <form method="post">
     	    <input type="text" name="u" placeholder="Username"  />
-            <input type="text" name="p" placeholder="Password"  />
+            <input type="password" name="p" placeholder="Password"  />
             <Link type="submit" to="/listings" onClick={onLogin}>Log in</Link>
         </form>
         </div>

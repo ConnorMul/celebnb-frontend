@@ -1,6 +1,4 @@
-* {
-  background: "https://images.unsplash.com/photo-1525254134158-4fd5fdd45793?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80";
-}
+
 
 .App {
   text-align: center;
@@ -47,17 +45,17 @@ img {
   height: 100px;
 }
 
-.navbar {
-  position: fixed;
-  top: 10;
-  width: 100%;
-}
-
 .logo {
   position: relative;
   right: 250px;
   text-decoration: none;
   font-size: 50px;
+}
+
+h1.welcome-user {
+  font-size: 30px;
+  margin-top: 0%;
+  color: rgb(150, 117, 170); 
 }
 
 /* .header-container {
@@ -105,30 +103,49 @@ button.login-button {
   flex-wrap: wrap;
 }
 
-img.listing-detail-image {
- 
-  top: 100%;
+.booking-card, h2, h5 {
+  /* margin: 0 auto; */
+  /* padding: 0; */
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px 125px 20px 20px;
+}
+
+
+.booking-card p {
+  padding: 30px 50px 50px 50px;
   
+}
+
+.delete-btn {
+  height: 50px;
+  margin-top: 3%;
+  margin-left: 5%;
+  border: none;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  color: purple;
+}
+
+img.listing-detail-image {
+  top: 100%;
   height: 25%;
   width: 25%;
   position: relative;
-   left: 0;
+  left: 0;
 
 }
 
 div.listing-details-card {
-
   display: flex;
   flex-direction: column;
- 
   width: 50%;
   margin: 0 auto;
-  
+  color: purple;
+
 }
 
 .listing-details {
   display: flex;
-  
 }
 
 .inner {
@@ -203,6 +220,9 @@ div.listing-details-card {
   
 }
 
+p.site-logo {
+  text-align: center;
+}
 
 /* this is the booking forms  */
 body {
@@ -288,7 +308,7 @@ body {
 
 
 .form-field label {
-  color: #666666;
+  color:rgb(150, 117, 170);
 } 
 
 .datepicker, .select-button {
@@ -348,13 +368,290 @@ img.leaflet-container {
  color:purple;
 }
 
+#discover {
+  color: purple;
+}
 
-img.globe{
-  width: 80px;
-  height: auto;
+/* SEARCH BAR */
+
+.container{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.js-search {
+  position: relative;
+  padding: 15px 40px 15px 20px;
+  width: 220px;
+  color: #525252;
+  text-transform: uppercase;
+  font-weight: 100;
+  letter-spacing: 2px;
+  border: none;
+  border-radius: 5px;
+  background: linear-gradient(to right, #FFFFFF 0%,#464747 #F9F9F9 100%);
+  transition: width 0.4s ease;
+  outline: none;
+  margin-top: .5%;
+}
+
+select.filter-menu {
+  right: 20%;
+  position: sticky;
+  margin-top: .5%;
+  padding: 15px 40px 15px 20px;
+  width: 220px;
+  color: #525252;
+  text-transform: uppercase;
+  font-weight: 100;
+  letter-spacing: 2px;
+  border: none;
+  border-radius: 5px;
+  background: linear-gradient(to right, #FFFFFF 0%,#464747 #F9F9F9 100%);
+  transition: width 0.4s ease;
+  outline: none;
+}
+
+i{
+  position: relative;
+  left: -37px;
+  color: #8233C5;
 }
 
 
 
 
 
+
+
+/* nav bar  */
+
+/* CSS Document */
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+@import url(https://fonts.googleapis.com/css?family=Bree+Serif);
+
+body {
+	background: #d9d9d9;
+	font-size:22px;
+	line-height: 32px;
+	color: #ffffff;
+	word-wrap:break-word !important;
+	font-family: 'Open Sans', sans-serif;
+	}
+
+h1 {
+	text-align: center;
+  font-size: 30px;
+  color: purple;
+}	
+
+h3 {
+	font-size: 30px;
+	text-align: center;
+	color: #FFF;
+}
+
+h3 a {
+	color: #FFF;
+}
+
+a {
+	color: #FFF;
+}
+
+h1 {
+	margin-top: 100px;
+	text-align:center;
+	font-size:60px;
+	font-family: 'Bree Serif', 'serif';
+	}
+
+#container {
+	margin: 0 auto;
+}
+
+p {
+	text-align: center;
+}
+
+nav {
+	margin: 50px 0;
+	background-color: #fff;
+}
+
+nav ul {
+	padding: 0;
+  margin: 0;
+	list-style: none;
+  position: relative;
+  background-color: #d9d9d9;
+	}
+	
+nav ul li {
+	display:inline-block;
+	background-color: #d9d9d9;
+	}
+
+nav a {
+	display:block;
+	padding:0 10px;	
+	color:black;
+	font-size:20px;
+	line-height: 60px;
+  text-decoration:none;
+  border-radius: 5px;
+}
+
+nav a:hover { 
+	background-color: #FFF; 
+}
+
+/* Hide Dropdowns by Default */
+nav ul ul {
+	display: none;
+	position: absolute; 
+	top: 60px; /* the height of the main nav */
+}
+	
+/* Display Dropdowns on Hover */
+nav ul li:hover > ul {
+	display:inherit;
+}
+	
+/* Fisrt Tier Dropdown */
+nav ul ul li {
+	width:170px;
+	float:none;
+	display:list-item;
+	position: relative;
+}
+
+/* Second, Third and more Tiers	*/
+nav ul ul ul li {
+	position: relative;
+	top:-60px; 
+	left:170px;
+}
+
+	
+/* Change this in order to change the Dropdown symbol */
+li > a:after { content:  ' +'; }
+li > a:only-child:after { content: ''; }
+
+
+
+
+
+
+a.logo{
+color:rgb(93, 14, 139);
+font-size: 90px;
+border-radius: 5px;
+text-shadow: 5px 5px grey;
+text-align: center;
+margin-left: 25%;
+display: block;
+}
+
+
+
+/* home page animation  */
+
+body{
+  background:#d9d9d9;
+  position:relative;
+}
+
+.svg{
+  display:block;
+  margin:0 auto;
+  height:500px;
+}
+.title{
+  font-family: 'Bree Serif', 'serif';
+  text-align:center;
+  color: purple;
+  font-size: 23px;
+  -webkit-animation: title 10s 1 ease-in-out;
+}
+@-webkit-keyframes title{
+  0%{color: purple;}
+}
+
+[id^=img_]{
+  stroke:purple;
+  stroke-width:1px;
+  fill:none;
+} 
+
+
+#img_4,#img_5,#img_6{
+  -webkit-animation: left 5s 5s infinite ease-in-out;
+}
+@-webkit-keyframes left{
+  50%{-webkit-transform:translateX(20%)}
+}
+#img_10{
+  -webkit-transform:translateX(1000px);
+  -webkit-animation: car 12s 5s infinite ease-in-out;
+}
+@-webkit-keyframes car{
+  0%{-webkit-transform:translateX(-1000px)}
+}
+#img_8{
+  -webkit-transform:translateX(1000px);
+  -webkit-animation: car2 12s 8s infinite ease-in-out;
+}
+@-webkit-keyframes car2{
+  0%{-webkit-transform:translateX(-1000px)}
+}
+#img_11{
+  -webkit-transform:translateX(1000px);
+  -webkit-animation: ride 12s 10s infinite ease-in-out;
+}
+@-webkit-keyframes ride{
+  0%{-webkit-transform:translateX(-1000px)}
+}
+
+
+
+
+
+
+.listings-container{
+  margin-bottom: 5%;
+}
+
+p.listing-details-link{
+  text-decoration:none;
+}
+
+.like-btn{
+  margin-left: 40%;
+}
+p.like-text{
+  margin-left: -3%;
+  color: purple;
+ 
+}
+
+h4.listing-title{
+  text-align: center;
+  font-size: 20px;
+  font-family: 'Bree Serif', 'serif';
+}
+p.listing-price{
+font-size: 15px;
+font-family: 'Bree Serif', 'serif';
+}
+
+.leaflet-container a{
+  text-decoration: none;
+  font-family: 'Bree Serif', 'serif';
+  font-size:15px;
+  color:black;
+}

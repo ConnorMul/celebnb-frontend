@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Route, Link, useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import BookingForm from './BookingForm';
 
 
@@ -43,22 +43,14 @@ useEffect(() => {
                     <h2 className="listing-detail-title">{title}</h2>
                     <p className="listing-detail-description">{description}</p>
                     <p className="listing-detail-price">${price} per night </p>
-                    <p className="listing-detail-guests">{num_of_guests} number of guests</p>
+                    <p className="listing-detail-guests">Room for {num_of_guests} guest(s)</p>
                     <p className="listing-detail-size">{size} Square feet </p>
                     <p className="listing-detail-owner">{owner}</p>
                     <p className="listing-detail-amenities">{wait_staff ? "Wait staff included" : "Wait staff is not included"}</p>
                     <p className="listing-detail-amenities">{hot_tub ? "Hot Tub included" : "Hot Tub not included"}</p>
                     <p className="listing-detail-amenities">{pool ? "Pool included" : "Pool not included"}</p>
-                
+
                 </div>
-                    {/* <BookingForm 
-                        currentUser={currentUser} 
-                        listing={listing} 
-                        bookings={bookings} 
-                        setBookings={setBookings}
-                        wallet={wallet}
-                        setWallet={setWallet}    
-                    /> */}
             </div>
             )
 }

@@ -1,18 +1,18 @@
-import React, { useState } from 'react'
+import React from 'react'
 import FilterSort from './FilterSort'
 import ListingCard from './ListingCard'
 import MyMap from './MyMap'
 import Search from './Search'
 function ListingsContainer({ listings, sortBy, setSortBy, search, handleSearchChange }) {
 
-    const listingItems = listings.map(listing => {
-        return (
-        <ListingCard
-            key={listing.id}
-            listing={listing}
-        />
-        )
-    })
+    // const listingItems = listings.map(listing => {
+    //     return (
+    //     <ListingCard
+    //         key={listing.id}
+    //         listing={listing}
+    //     />
+    //     )
+    // })
 
     return (
         <>

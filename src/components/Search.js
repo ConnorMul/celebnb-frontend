@@ -2,14 +2,15 @@ import React from 'react'
 
 function Search({ search, handleSearchChange }) {
     return (
-        <div>
-            <input
-            type="text"
-            placeholder={"Search By Country"}
-            className="search-field"
-            value={search}
-            onChange={(e) => handleSearchChange(e.target.value)}
-      />
+        <div class="container">
+            <input 
+                placeholder='Search by country' 
+                class='js-search' 
+                type="text" 
+                value={search}
+                onChange={(e) => handleSearchChange(e.target.value)}
+            />
+            <i class="fa fa-search"></i>
         </div>
     )
 }

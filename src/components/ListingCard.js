@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { NavLink, Link, useParams } from "react-router-dom";
+import {  Link } from "react-router-dom";
 
 function ListingCard({ listing }) {
     const [likes, setLikes] = useState(listing.likes)
@@ -30,18 +30,15 @@ function ListingCard({ listing }) {
             
             <h4 className="listing-title">{listing.title}</h4>
             <p className="listing-price">${listing.price} a night</p>
-            <p className="listing-location">{listing.location}</p>
-           
-            {listing.likes}
-            <br />
+            
+            <p className="like-text">{listing.likes}</p>
             <button className="like-btn" onClick={handleLike}>
                  💜
             </button>
            
             
             <Link to={`listings/${listing.id}`} >
-               <p className="listing-details-link">See More Details on this Listing</p>
-                <p className="listing-details-link">& Book your stay</p>
+                <p className="listing-details-link">Book Your Stay</p>
             </Link>
             {/* <ListingDetail listing={listing}/> */}
         </div>

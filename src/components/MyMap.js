@@ -19,7 +19,7 @@ function MyMap({ listings }) {
       className="map"
       center={position}
       zoom={3}
-      style={{ width: '1500px', height: '750px' }}
+      style={{ width: '1500px', height: '600px' }}
     >
       <TileLayer
         url='https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png'

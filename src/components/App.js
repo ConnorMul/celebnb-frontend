@@ -5,7 +5,6 @@ import Home from './Home'
 import ListingsContainer from './ListingsContainer'
 import './App.css';
 import ListingDetail from './ListingDetail'
-import BookingForm from "./BookingForm";
 import BookingList from "./BookingList";
 import Login from "./Login"
 

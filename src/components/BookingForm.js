@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Redirect, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 function BookingForm({ listing, currentUser, bookings, setBookings, setWallet, wallet }) {
     const [checkInDate, setCheckInDate] = useState("")
