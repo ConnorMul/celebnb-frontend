@@ -89,6 +89,8 @@ function BookingForm({ listing, currentUser, bookings, setBookings, setWallet, w
                     .then(updatedUserObj => setWallet(updatedUserObj.money_in_wallet))
                     history.push("/bookings")
                 })
+                } else if (currentUser === null) {
+                   alert("You must be logged in to book a trip")
                 } else {
                     alert("You don't have enough to book this listing lol poor")
                 }
