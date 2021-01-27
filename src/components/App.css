@@ -47,12 +47,6 @@ img {
   height: 100px;
 }
 
-.navbar {
-  /* position: fixed;
-  top: 0;
-  width: 100%; */
-}
-
 .logo {
   position: relative;
   right: 250px;
@@ -371,3 +365,18 @@ map design  */
 div.leaflet-popup-content-wrapper {
   background-color: lavender;
 }
+
+img.leaflet-container {
+ color:purple;
+}
+
+
+img.globe{
+  width: 80px;
+  height: auto;
+}
+
+
+
+
+
