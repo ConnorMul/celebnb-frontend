@@ -98,32 +98,33 @@ function BookingForm({ listing, currentUser, bookings, setBookings, setWallet, w
 
       console.log(formData)
     return (
-    <div class="booking-widget">
+    <div className="booking-widget">
 
             <form onSubmit={handleSubmit}>
                 <br />
-                <ul class='booking-widget__form'>
+                <ul className='booking-widget__form'>
                     <li>
                         <label for='check-in'> Check in </label>
-                        <div id='check-in' class='form-field'>
+                        <div id='check-in' className='form-field'>
                             <input 
-                            type="text" 
-                            name="check-in-date" 
-                            value={checkInDate} 
-                            onChange={handleChange} 
-                            placeholder="9 July, 2016"
+                                type="text" 
+                                name="check-in-date" 
+                                value={checkInDate} 
+                                onChange={handleChange} 
+                                placeholder="01/01/2021"
                             />
                         </div>
 
                     </li>
                     <li>
                          <label for='check-in'>Check out</label>
-                         <div id='check-out' class='form-field'>
+                         <div id='check-out' className='form-field'>
                             <input 
-                            type="text" 
-                            name="check-out-date" 
-                            value={checkOutDate} 
-                            onChange={handleChange} 
+                                type="text" 
+                                name="check-out-date" 
+                                value={checkOutDate} 
+                                onChange={handleChange} 
+                                placeholder="01/31/2021"
                             />
                         </div>
 

@@ -103,12 +103,18 @@ button.login-button {
   flex-wrap: wrap;
 }
 
-.booking-card, h2, h5 {
+.booking-card, .booking-card h2, h5 {
   /* margin: 0 auto; */
   /* padding: 0; */
   display: flex;
   flex-wrap: wrap;
   padding: 20px 125px 20px 20px;
+}
+
+h2.listing-detail-title {
+  text-align: center;
+  margin-left: 0%;
+
 }
 
 
@@ -131,7 +137,7 @@ img.listing-detail-image {
   height: 25%;
   width: 25%;
   position: relative;
-  left: 0;
+  left: 15%;
 
 }
 
@@ -244,6 +250,9 @@ body {
   background-color: #fbfbfb;
   border-radius: 5px;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, .44);
+  margin-top: 20%;
+
+  
   /* margin-top: 200px;
   margin-left: 580px; */
 }
@@ -275,10 +284,14 @@ body {
   font-size: 25px;
 }
 
+form {
+  left: 200px;
+}
+
 .booking-widget__form {
   list-style-type: none;
   padding: 0 25px 0 25px;
-  margin: 0;
+  /* margin-right: 15%; */
 }
 
 .booking-widget__form li {
@@ -307,7 +320,7 @@ body {
 }
 
 
-.form-field label {
+label {
   color:rgb(150, 117, 170);
 } 
 

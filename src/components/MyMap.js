@@ -5,7 +5,7 @@ import ListingCard from './ListingCard'
 
 function MyMap({ listings }) {
 
-  const position = [15.326572, -76.157227]
+  const position = [35.48930808621463, -40.90551830239853]
 
   const mapIcon = icon({
     iconUrl: "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-violet.png",
