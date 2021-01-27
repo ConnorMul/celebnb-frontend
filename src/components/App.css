@@ -48,9 +48,9 @@ img {
 }
 
 .navbar {
-  /* position: fixed;
-  top: 0;
-  width: 100%; */
+  position: fixed;
+  top: 10;
+  width: 100%;
 }
 
 .logo {
@@ -99,9 +99,6 @@ button.login-button {
   margin: 5px;
 }
 
-.listing-card:hover {
-  /* background-color: rgb(199, 199, 199); */
-}
 
 .listings-container {
   display: flex;
@@ -117,7 +114,6 @@ img.listing-detail-image {
 }
 
 div.listing-details-card {
-  
   position: absolute;
   bottom: 200px;
   text-align: center;
@@ -135,8 +131,6 @@ div.listing-details-card {
   padding: 0px;
   max-width: 200px;
 }
-
-
 
 body{
   padding:0;
