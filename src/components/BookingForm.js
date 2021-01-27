@@ -95,14 +95,12 @@ function BookingForm({ listing, currentUser, bookings, setBookings, setWallet, w
                     alert("You don't have enough to book this listing lol poor")
                 }
     }
-        
-
 
       console.log(formData)
     return (
     <div class="booking-widget">
 
-            <form  onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit}>
                 <br />
                 <ul class='booking-widget__form'>
                     <li>
@@ -116,7 +114,7 @@ function BookingForm({ listing, currentUser, bookings, setBookings, setWallet, w
                             placeholder="9 July, 2016"
                             />
                         </div>
-                        
+
                     </li>
                     <li>
                          <label for='check-in'>Check out</label>
@@ -128,7 +126,7 @@ function BookingForm({ listing, currentUser, bookings, setBookings, setWallet, w
                             onChange={handleChange} 
                             />
                         </div>
-                        
+
                     </li>
 
                     <li>
@@ -149,11 +147,11 @@ function BookingForm({ listing, currentUser, bookings, setBookings, setWallet, w
                     <li>
                      <div class='form__dropdown' id="cost">
                         <label for='childrenAmount'>Total Cost</label>
-                        
-                      <div class='form-field'> 
-                            <input 
-                            type="text" 
-                            name="price" 
+
+                      <div class='form-field'>
+                            <input
+                            type="text"
+                            name="price"
                             value={totalListingPriceForStay} 
                             // onChange={handlePriceChange}
                             />
