@@ -40,7 +40,9 @@ function ListingCard({ listing }) {
             <Link to={`listings/${listing.id}`} >
                 <p className="listing-details-link">Book Your Stay</p>
             </Link>
+            
             {/* <ListingDetail listing={listing}/> */}
+            
         </div>
     )
 }

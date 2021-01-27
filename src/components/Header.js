@@ -7,7 +7,7 @@ function Header({ onLogin, onLogout, currentUser, wallet }) {
 
     return (
         <>
-        <h1 className="maintitle"><Link className="logo" exact to="/">Celebnb</Link></h1>
+        <h1 className="maintitle"><Link className="logo" exact to="/">Celebbnb</Link></h1>
         <div id="container">
                 <nav>
                     <ul>

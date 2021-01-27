@@ -41,18 +41,20 @@ useEffect(() => {
         
                 <div className="listing-details-card">
                     <h2 className="listing-detail-title">{title}</h2>
-                    <p className="listing-detail-description">{description}</p>
+                    <p className="listing-detail-owner">{owner}'s property</p>
                     <p className="listing-detail-price">${price} per night </p>
-                    <p className="listing-detail-guests">Room for {num_of_guests} guest(s)</p>
+                    <p className="listing-detail-description">{description}</p>
+                    <br />
+                    <br />
                     <p className="listing-detail-size">{size} Square feet </p>
-                    <p className="listing-detail-owner">{owner}</p>
-                    <p className="listing-detail-amenities">{wait_staff ? "Wait staff included" : "Wait staff is not included"}</p>
-                    <p className="listing-detail-amenities">{hot_tub ? "Hot Tub included" : "Hot Tub not included"}</p>
-                    <p className="listing-detail-amenities">{pool ? "Pool included" : "Pool not included"}</p>
+                    <p className="listing-detail-guests">{num_of_guests} guest(s)</p>
+                    <p className="listing-detail-amenities" style={ wait_staff ? { color:'black'} : {color : 'red'} }>{wait_staff ? "Wait staff included" : "Wait staff is not included"}</p>
+                    <p className="listing-detail-amenities" style={ hot_tub ? { color:'black'} : {color : 'red'} }>{hot_tub ? "Hot Tub included" : "Hot Tub not included"}</p>
+                    <p className="listing-detail-amenities" style={ pool ? { color:'black'} : {color : 'red'} }>{pool ? "Pool included" : "Pool not included"}</p>
 
                 </div>
             </div>
-            )
+        )
 }
 
 export default ListingDetail 

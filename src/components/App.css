@@ -85,7 +85,22 @@ button.login-button {
   position: relative;
   left: 150px;
 }
+.booking-h2{
+  margin: 0%;
+  padding-left: 10%;
+  color:black;
+}
+.booking-title{
+  
+  margin-top: 2%;
+  color:black;
+  margin-left: 5%;
+}
+.booking-dates{
+  margin: 0%;
 
+  color:black;
+}
 .listing-details-link {
   padding-top: 0em;
   position: relative;
@@ -103,18 +118,36 @@ button.login-button {
   flex-wrap: wrap;
 }
 
-.booking-card, .booking-card h2, h5 {
-  /* margin: 0 auto; */
-  /* padding: 0; */
-  display: flex;
-  flex-wrap: wrap;
-  padding: 20px 125px 20px 20px;
+.booking-image{
+  border-radius: 10px;
 }
 
+.booking-card{
+  margin-left:25%;
+  margin-top: 7%;
+}
+
+.booking-card, .booking-card h2, h5 {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0px 0px 0px 0px;
+  
+}
+
+.listing-detail-description{
+  color:rgb(76, 36, 151);
+}
+.listing-detail-size{
+  color:black;
+}
+.listing-detail-guests{
+  color:black;
+}
 h2.listing-detail-title {
   text-align: center;
   margin-left: 0%;
-
+  color:rgb(93, 14, 139);
+  font-size: 35px;
 }
 
 
@@ -123,31 +156,47 @@ h2.listing-detail-title {
   
 }
 
+.listing-detail-price{
+  color:rgb(76, 36, 151);
+  text-shadow: 1px 1px grey;
+  border-radius: 5px;
+}
+
 .delete-btn {
-  height: 50px;
-  margin-top: 3%;
-  margin-left: 5%;
+  height: 65px;
+  margin-left: 0%;
   border: none;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-  color: purple;
+  border-radius: 10px;
+  color:black;
+}
+
+.delete-btn:hover {
+  background-color: red;
+  transition: 3s;
 }
 
 img.listing-detail-image {
   top: 100%;
-  height: 25%;
-  width: 25%;
+  height: 15%;
+  width: 18%;
   position: relative;
-  left: 15%;
-
+  left: 21.5%;
+  margin-top: 9%;
+  border-radius: 9px;
 }
 
 div.listing-details-card {
   display: flex;
   flex-direction: column;
   width: 50%;
+  font-size: 18px;
   margin: 0 auto;
-  color: purple;
-
+  color: rgb(150, 117, 170);;
+  margin-top: 10%;
+}
+.listing-detail-amenities{
+  font-size: 15px;
 }
 
 .listing-details {
@@ -251,10 +300,6 @@ body {
   border-radius: 5px;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, .44);
   margin-top: 20%;
-
-  
-  /* margin-top: 200px;
-  margin-left: 580px; */
 }
 
 .booking-widget__header {
@@ -378,11 +423,11 @@ div.leaflet-popup-content-wrapper {
 }
 
 img.leaflet-container {
- color:purple;
+ color:rgb(150, 117, 170);;
 }
 
 #discover {
-  color: purple;
+  color: rgb(150, 117, 170);;
 }
 
 /* SEARCH BAR */
@@ -667,4 +712,10 @@ font-family: 'Bree Serif', 'serif';
   font-family: 'Bree Serif', 'serif';
   font-size:15px;
   color:black;
+}
+
+h1.current_booking{
+  font-size: 35px;
+  margin-top: 9%;
+  color:rgb(93, 14, 139);
 }

@@ -14,7 +14,7 @@ function BookingList({ bookings, handleDeleteBooking }) {
 
     return(
         <div className="booking-container">
-            <h1> Current bookings </h1>
+            <h1 className="current_booking"> Current bookings </h1>
             {bookingItems.length > 0 ? bookingItems : "You have no bookings yet, check out our listings!"}
         </div>
     )
