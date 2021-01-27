@@ -58,7 +58,7 @@ function BookingForm({ listing, currentUser, bookings, setBookings, setWallet, w
 
     const handleSubmit = (evt) => {
         evt.preventDefault()
-        if (wallet >= totalListingPriceForStay) {
+        if (currentUser && wallet >= totalListingPriceForStay) {
             fetch(`${process.env.REACT_APP_API_BASE_URL}/bookings/new`, {
                 method: "POST",
                 headers: {
@@ -89,6 +89,8 @@ function BookingForm({ listing, currentUser, bookings, setBookings, setWallet, w
                     .then(updatedUserObj => setWallet(updatedUserObj.money_in_wallet))
                     history.push("/bookings")
                 })
+                } else if (currentUser === null) {
+                   alert("You must be logged in to book a trip")
                 } else {
                     alert("You don't have enough to book this listing lol poor")
                 }

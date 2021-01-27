@@ -23,13 +23,25 @@ useEffect(() => {
 
   const { image, title, price, description, num_of_guests, size, owner, wait_staff, hot_tub, pool } = listing;
         return (
-            <div>
-                <img src={image} alt={title} className="listing-detail-image"></img>
+        
+           
+            
+    
+            <div className="listing-details">
+            <img src={image} alt={title} className="listing-detail-image"></img>
+    
+                 <BookingForm 
+                        currentUser={currentUser} 
+                        listing={listing} 
+                        bookings={bookings} 
+                        setBookings={setBookings}
+                        wallet={wallet}
+                        setWallet={setWallet}    
+                    />
+        
                 <div className="listing-details-card">
                     <h2 className="listing-detail-title">{title}</h2>
-                    <div className="listing-detail-description-container">
-                        <p className="listing-detail-description">{description}</p>
-                    </div>
+                    <p className="listing-detail-description">{description}</p>
                     <p className="listing-detail-price">${price} per night </p>
                     <p className="listing-detail-guests">{num_of_guests} number of guests</p>
                     <p className="listing-detail-size">{size} Square feet </p>
@@ -39,14 +51,14 @@ useEffect(() => {
                     <p className="listing-detail-amenities">{pool ? "Pool included" : "Pool not included"}</p>
                 
                 </div>
-                    <BookingForm 
+                    {/* <BookingForm 
                         currentUser={currentUser} 
                         listing={listing} 
                         bookings={bookings} 
                         setBookings={setBookings}
                         wallet={wallet}
                         setWallet={setWallet}    
-                    />
+                    /> */}
             </div>
             )
 }
